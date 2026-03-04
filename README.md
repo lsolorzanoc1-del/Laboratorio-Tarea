@@ -1,89 +1,163 @@
-# Laboratorio-Tarea
+Laboratorio-Tarea
 <br>
+Ejercicio en Clase 3 – Modularización en Java
 
-## Ejercicio en Clase 3 – Modularización en Java
 Curso: Programación 1
 <br>
+Parte 1 – Análisis del Programa Original
 
-### Parte 1 – Análisis del Programa Original
-En el programa original se observó que todo el código estaba dentro del método main, incluyendo:
+En el programa original se observó que todo el código estaba concentrado dentro del método main.
 
-1)Agregar estudiante
+Dentro de este método se realizaban todas las tareas del sistema:
 
-2)Mostrar estudiantes
-
-3)Calcular promedio
-
-4)Buscar la calificación más alta
-
-5)Mostrar el menú
-
-
-
-Estas tareas pueden convertirse en métodos independientes porque cada una cumple una función específica. 
-<br>
-<br>
 <br>
 
-##### También se repiten validaciones como:
+• Agregar estudiante
+• Mostrar estudiantes
+• Calcular promedio
+• Buscar la calificación más alta
+• Mostrar el menú
 
-1)Verificar si las listas están vacías.
-
-2)Conversión de texto a números sin control de errores.
-<br>
-<br>
-
-##### Dividir estas tareas mejora el programa porque:
-
-1)Hace el código más organizado.
-
-2)Permite reutilizar métodos.
-
-3)Facilita el mantenimiento.
-
-4)Reduce la posibilidad de errores.
-<br>
-<br>
 <br>
 
-### Variables Locales vs Globales
+Cada una de estas tareas cumple una función específica, por lo tanto pueden convertirse en métodos independientes.
 
-Variables Globales (static) <br>
-static List<String> estudiantes;<br>
+<br>
+ Validaciones repetitivas detectadas
+
+• Verificar si las listas están vacías.
+• Conversión de texto a números sin control de errores.
+
+<br>
+ ¿Por qué dividir estas tareas mejora el programa?
+
+• Hace el código más organizado.
+• Permite reutilizar métodos.
+• Facilita el mantenimiento.
+• Reduce la posibilidad de errores.
+• Mejora la legibilidad del programa.
+
+<br> <br>
+ Variables Locales vs Globales
+<br>
+ Variables Globales (static)
+static List<String> estudiantes;
 static List<Double> calificaciones;
 
+Se dejaron como globales porque:
 
+• Representan los datos principales del sistema.
+• Son utilizadas en varios métodos.
+• Deben mantenerse disponibles durante toda la ejecución.
 
-##### Se dejaron como globales porque:
-
-1)Representan los datos principales del sistema.
-
-2)Son utilizadas en varios métodos.
-
-3)Deben mantenerse disponibles durante toda la ejecución.
 <br>
+ Variables Locales
+
+Ejemplos:
+
+• Scanner scanner
+• int opcion
+• double suma
+• double promedio
+• double calificacion
+
 <br>
 
+Se declararon dentro de los métodos porque:
 
+• Solo se usan en una parte específica del programa.
+• Reducen el riesgo de modificar datos accidentalmente.
+• Mejoran la seguridad y claridad del código.
 
-#### Variables Locales
+<br> <br>
+Parte 2 – Modularización del Programa
 
-##### Ejemplos:
+Para mejorar la estructura del programa se dividió el código en métodos específicos, cada uno con una sola responsabilidad.
 
-1)Scanner scanner
+<br>
+Métodos creados:
 
-2)int opcion
+• mostrarMenu()
+• agregarEstudiante()
+• mostrarEstudiantes()
+• calcularPromedio()
+• mostrarMejorEstudiante()
+• leerEntero()
+• leerDouble()
 
-3)double suma
+<br>
 
-4)double promedio
+Ahora el método main únicamente:
 
-5)double calificacion
+• Muestra el menú.
+• Lee la opción del usuario.
+• Llama al método correspondiente.
 
-6)Estas se declararon dentro de los métodos porque:
+<br>
+Beneficios de esta organización
 
-7)Solo se usan en una parte específica del programa.
+• Separación clara de responsabilidades.
+• Código más limpio y ordenado.
+• Mayor facilidad para hacer mejoras.
+• Programa más profesional.
 
-8)Reducen el riesgo de modificar datos accidentalmente.
+<br> <br>
+Parte 3 – Validaciones y Manejo de Excepciones
 
-9)Mejoran la seguridad y claridad del código.
+En el programa original podían ocurrir errores como:
+
+• Ingresar texto cuando se esperaba un número.
+• Ingresar una calificación fuera del rango permitido.
+• Calcular promedio sin estudiantes registrados.
+• Buscar la calificación más alta sin datos.
+
+<br>
+Mejoras implementadas
+
+• Uso de try-catch para evitar fallos por entradas incorrectas.
+• Métodos leerEntero() y leerDouble() para validar datos.
+• Validación del rango de calificaciones (0 a 100).
+• Verificación de listas vacías antes de operar.
+
+<br>
+Importancia de las validaciones
+
+• Evitan que el programa se cierre inesperadamente.
+• Mejoran la experiencia del usuario.
+• Hacen el sistema más seguro y confiable.
+
+<br> <br>
+Parte 4 – Preguntas de Reflexión
+<br>
+¿Qué ventajas tiene dividir el código en métodos?
+
+• Mejor organización.
+• Mayor claridad.
+• Reutilización del código.
+• Facilidad para encontrar errores.
+• Mejor mantenimiento.
+
+<br>
+¿Por qué no es recomendable usar muchas variables globales?
+
+• Pueden modificarse desde cualquier parte del programa.
+• Generan dependencia entre métodos.
+• Dificultan la detección de errores.
+• Aumentan el riesgo de fallos inesperados.
+
+<br>
+¿Cómo mejora la modularización la legibilidad?
+
+• Divide el programa en partes pequeñas y claras.
+• Cada método tiene un nombre descriptivo.
+• Permite entender rápidamente qué hace cada sección.
+• Hace el código más fácil de leer.
+
+<br> <br>
+Conclusión
+
+La modularización permitió reorganizar el programa en métodos específicos, mejorar la estructura del código y agregar validaciones que hacen el sistema más seguro y estable.
+
+El programa final es más claro, más ordenado y más fácil de mantener que la versión original.
+
+<br>
